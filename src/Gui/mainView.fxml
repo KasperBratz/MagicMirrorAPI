@@ -28,16 +28,16 @@
             <RowConstraints maxHeight="318.5941162109375" minHeight="30.85791015625" prefHeight="318.5941162109375" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <VBox nodeOrientation="RIGHT_TO_LEFT" GridPane.columnIndex="1">
+            <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="412.0" prefWidth="545.0" GridPane.columnIndex="1">
                <children>
                   <Label fx:id="timeLabel" alignment="CENTER_RIGHT" contentDisplay="TOP" text="18:20" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="80.0" />
                      </font>
                   </Label>
-                  <Label fx:id="dateLabel" alignment="TOP_CENTER" contentDisplay="TOP" text="2013-03-02" textAlignment="CENTER" textFill="WHITE">
+                  <Label fx:id="dateLabel" alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="107.0" prefWidth="523.0" text="Thursday 10 November, 2016" textFill="WHITE" wrapText="true">
                      <font>
-                        <Font name="System Bold" size="32.0" />
+                        <Font name="System Bold" size="30.0" />
                      </font>
                   </Label>
                </children>
@@ -71,54 +71,6 @@
                <padding>
                   <Insets top="50.0" />
                </padding>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="2" GridPane.rowSpan="2">
-               <children>
-                  <Label fx:id="subredditLabel" text="Reddit feed /programming" textFill="WHITE">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Label>
-                  <ScrollPane fx:id="redditScrollPane" hbarPolicy="NEVER" prefHeight="560.0" prefWidth="434.0" style="-fx-background: black; fx-border-color: black; -fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <VBox fx:id="redditBox" spacing="10.0" style="-fx-background-color: black;" />
-                     </content>
-                  </ScrollPane>
-               </children>
-               <GridPane.margin>
-                  <Insets right="30.0" />
-               </GridPane.margin>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.rowSpan="2">
-               <children>
-                  <Label fx:id="newsLabel" text="News" textFill="WHITE">
-                     <font>
-                        <Font size="35.0" />
-                     </font>
-                  </Label>
-                  <ScrollPane fx:id="newsScrollPane" hbarPolicy="NEVER" prefHeight="560.0" prefWidth="434.0" style="-fx-background: black; fx-border-color: black; -fx-background-color: transparent;" vbarPolicy="NEVER">
-                     <content>
-                        <VBox fx:id="newsBox" spacing="10.0" />
-                     </content>
-                  </ScrollPane>
-               </children>
-               <GridPane.margin>
-                  <Insets left="30.0" />
-               </GridPane.margin>
-            </VBox>
-            <VBox alignment="TOP_RIGHT" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Label fx:id="busDepartureTitle" text="Upcoming departures" textFill="WHITE">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="busDepartureLabel" text="Label" textFill="WHITE">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                  </Label>
-               </children>
             </VBox>
          </children>
          <padding>

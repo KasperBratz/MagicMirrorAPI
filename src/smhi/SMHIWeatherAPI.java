@@ -20,14 +20,18 @@ public class SMHIWeatherAPI {
     public Forecasts getForecasts() {
         ObjectMapper mapper = new ObjectMapper();
         JsonWeatherAsObject jsonObject = null;
-        try {
-            String url = "http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/" + longitude + "/lat/" + latitude + "/data.json";
-            jsonObject = mapper.readValue(new URL(url), JsonWeatherAsObject.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        do {
+            try {
+                System.out.println("Trying to get weather");
+                String url = "http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/" + longitude + "/lat/" + latitude + "/data.json";
+                jsonObject = mapper.readValue(new URL(url), JsonWeatherAsObject.class);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }while(jsonObject==null);
+        System.out.println("Got weather");
         forecasts =  mapObjectToForecast(jsonObject);
         return forecasts;
     }
