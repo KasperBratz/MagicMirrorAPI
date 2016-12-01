@@ -15,7 +15,7 @@ public class MessageGetter {
 
     public MessageGetter(){
         try{
-            messages = mapper.readValue( new File(new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath()).getParentFile().getAbsolutePath() + "/MagicMirrorAPI/messages.json")
+            messages = mapper.readValue( new File("messages.json")
                     , MessageHolder.class);
         }catch (IOException e){
             e.printStackTrace();
