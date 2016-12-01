@@ -16,66 +16,75 @@
 
 <AnchorPane prefHeight="1920.0" prefWidth="1080.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Gui.Controller">
    <children>
-      <GridPane fx:id="gridPane" layoutX="3.0" layoutY="-10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="-10.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="706.0" minWidth="10.0" prefWidth="488.078857421875" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0079345703125" minWidth="0.0" prefWidth="440.7342529296875" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints maxHeight="659.8210754394531" minHeight="30.85791015625" prefHeight="366.8343505859375" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="965.0" minHeight="30.85791015625" prefHeight="956.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="395.1824951171875" minHeight="30.85791015625" prefHeight="80.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="318.5941162109375" minHeight="30.85791015625" prefHeight="318.5941162109375" vgrow="SOMETIMES" />
-        </rowConstraints>
+      <VBox layoutY="-14.0">
          <children>
-            <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="412.0" prefWidth="545.0" GridPane.columnIndex="1">
+            <GridPane fx:id="gridPane" layoutY="-14.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1937.0" prefWidth="1080.0" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-14.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="706.0" minWidth="10.0" prefWidth="488.078857421875" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="541.0079345703125" minWidth="0.0" prefWidth="440.7342529296875" />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="659.8210754394531" minHeight="30.85791015625" prefHeight="366.8343505859375" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="965.0" minHeight="30.85791015625" prefHeight="956.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="395.1824951171875" minHeight="30.85791015625" prefHeight="80.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="318.5941162109375" minHeight="30.85791015625" prefHeight="318.5941162109375" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Label fx:id="timeLabel" alignment="CENTER_RIGHT" contentDisplay="TOP" text="18:20" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="80.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="dateLabel" alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="107.0" prefWidth="523.0" text="Thursday 10 November, 2016" textFill="WHITE" wrapText="true">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
+                  <VBox nodeOrientation="RIGHT_TO_LEFT" prefHeight="412.0" prefWidth="545.0" GridPane.columnIndex="1">
+                     <children>
+                        <Label fx:id="timeLabel" alignment="CENTER_RIGHT" contentDisplay="TOP" text="18:20" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="80.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="dateLabel" alignment="TOP_RIGHT" contentDisplay="TOP" prefHeight="107.0" prefWidth="523.0" text="Thursday 10 November, 2016" textFill="WHITE" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="weatherIconLabel" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="114.0" prefWidth="434.0" text="Label" textFill="WHITE">
+                           <font>
+                              <Font size="120.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="temperatureLabel" text="15 C" textFill="WHITE">
+                           <font>
+                              <Font size="56.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="windLabel" text="2 ms/s SE max 4 m/s" textFill="WHITE">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="rainForecastLabel" text="Rain max 2mm" textFill="WHITE">
+                           <font>
+                              <Font size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets top="50.0" />
+                     </padding>
+                  </VBox>
                </children>
                <padding>
-                  <Insets top="50.0" />
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
                </padding>
-            </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label fx:id="weatherIconLabel" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="114.0" prefWidth="434.0" text="Label" textFill="WHITE">
-                     <font>
-                        <Font size="120.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="temperatureLabel" text="15 C" textFill="WHITE">
-                     <font>
-                        <Font size="56.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="windLabel" text="2 ms/s SE max 4 m/s" textFill="WHITE">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="rainForecastLabel" text="Rain max 2mm" textFill="WHITE">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets top="50.0" />
-               </padding>
-            </VBox>
+            </GridPane>
+            <Label fx:id="messageLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="582.0" prefWidth="1079.0" text="Some nice message here" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="ALWAYS">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Label>
          </children>
-         <padding>
-            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
-         </padding>
-      </GridPane>
+      </VBox>
    </children>
 </AnchorPane>

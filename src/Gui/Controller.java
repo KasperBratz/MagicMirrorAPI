@@ -1,5 +1,7 @@
 package Gui;
 
+import MessageHandler.MessageGetter;
+import MessageHandler.MessageHolder;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Platform;
@@ -36,6 +38,7 @@ public class Controller {
     private SMHIWeatherAPI weatherApi;
     private Properties prop;
     private InputStream is;
+    private static MessageGetter getter = new MessageGetter();
 
     @FXML
     Label weatherIconLabel;
@@ -50,6 +53,8 @@ public class Controller {
     Label timeLabel;
     @FXML
     Label dateLabel;
+    @FXML
+    Label messageLabel;
 
 
 
@@ -79,6 +84,20 @@ public class Controller {
         startWeatherUpdater();
         startTimeAndDateUpdater();
         setWeatherFont(weatherIconLabel);
+        startMessageUpdater();
+    }
+
+    private void startMessageUpdater(){
+        Runnable messageUpdater = () -> {
+            Platform.runLater(() -> {
+                String message = getter.getMessage();
+                messageLabel.setText(message);
+                System.out.println("Current message should be " + message);
+            });
+
+        };
+        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        executor.scheduleAtFixedRate(messageUpdater, 0, 30, TimeUnit.MINUTES);
     }
 
     /**

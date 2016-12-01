@@ -1,0 +1,12 @@
+{
+  "messages" : {
+
+    "morningMessages" : ["God morgon, snygging!", "Ha en kick-ass dag!", "Nu är det dags att vakna!", "Har du sovit gott idag?"]
+    ,
+    "eveningMessages" : ["Snart är det dags att sova", "Glöm inte borsta tänderna :)", "Sov gott! <3", "Hey sexy! ;)"]
+    ,
+    "defaultMessages" : ["Hej på dig snygging!", "Wow! Du är snygg!", "Detta är coolt"]
+
+  }
+
+}
