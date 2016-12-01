@@ -99,7 +99,16 @@ public class Controller {
 
     private void startWeatherUpdater() {
         Runnable updateWeather = () -> {
-            Forecasts f = weatherApi.getForecasts();
+            Forecasts f = null;
+            do {
+                try {
+                    f = weatherApi.getForecasts();
+                } catch (IOException e) {
+                    Platform.runLater(() -> {
+                        temperatureLabel.setText("Sönder - Säg till Kasper");
+                    });
+                }
+            }while(f==null);
             HourlyForecast forecast = f.getCurrentWeather();
 
             Platform.runLater(() -> {
