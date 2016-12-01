@@ -20,8 +20,6 @@ public class SMHIWeatherAPI {
     public Forecasts getForecasts() throws  IOException{
         ObjectMapper mapper = new ObjectMapper();
         JsonWeatherAsObject jsonObject = null;
-
-                System.out.println("Trying to get weather");
                 String url = "http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/2/geotype/point/lon/" + longitude + "/lat/" + latitude + "/data.json";
                 jsonObject = mapper.readValue(new URL(url), JsonWeatherAsObject.class);
 

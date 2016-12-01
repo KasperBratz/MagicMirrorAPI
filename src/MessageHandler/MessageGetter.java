@@ -15,7 +15,12 @@ public class MessageGetter {
 
     public MessageGetter(){
         try{
-            messages = mapper.readValue( new File("messages.json")
+            File jarPath = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+            String propFileName = jarPath.getAbsolutePath();
+            if(propFileName.endsWith(".jar")){
+                propFileName = jarPath.getParentFile().getAbsolutePath();
+            }
+            messages = mapper.readValue( new File(propFileName + "/messages.json")
                     , MessageHolder.class);
         }catch (IOException e){
             e.printStackTrace();
