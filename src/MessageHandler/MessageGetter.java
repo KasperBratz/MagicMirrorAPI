@@ -12,22 +12,26 @@ import java.util.Calendar;
 public class MessageGetter {
     private ObjectMapper mapper = new ObjectMapper();
     private MessageHolder messages = null;
+    private String pathname = "";
 
     public MessageGetter(){
-        try{
-            File jarPath = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
-            String propFileName = jarPath.getAbsolutePath();
-            if(propFileName.endsWith(".jar")){
-                propFileName = jarPath.getParentFile().getAbsolutePath();
-            }
-            messages = mapper.readValue( new File(propFileName + "/messages.json")
-                    , MessageHolder.class);
-        }catch (IOException e){
-            e.printStackTrace();
+
+        File jarPath = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+        String propFileName = jarPath.getAbsolutePath();
+        if(propFileName.endsWith(".jar")){
+            propFileName = jarPath.getParentFile().getAbsolutePath();
         }
+        pathname = propFileName + "/messages.json";
+
     }
 
     public String getMessage(){
+        try {
+            messages = mapper.readValue(new File(pathname)
+                    , MessageHolder.class);
+        }catch (IOException e){
+            System.out.print("Something wrong with messages");
+        }
         Calendar now = Calendar.getInstance();
         int hour = now.get(Calendar.HOUR_OF_DAY);
 

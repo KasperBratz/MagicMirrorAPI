@@ -104,7 +104,7 @@ public class Controller {
      * Sets up how often the digital clock should update
      */
     private void startTimeAndDateUpdater() {
-        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+        Timeline fiveSecondsWonder = new Timeline(new KeyFrame(Duration.seconds(30), event -> {
             Calendar now = Calendar.getInstance();
             timeLabel.setText(new SimpleDateFormat("HH:mm").format(now.getTime()));
             dateLabel.setText(getDatePrint());
@@ -125,6 +125,10 @@ public class Controller {
                 } catch (IOException e) {
                     Platform.runLater(() -> {
                         temperatureLabel.setText("Sönder - Säg till Kasper");
+                    });
+                } catch (Exception e){
+                    Platform.runLater(() -> {
+                        temperatureLabel.setText("CRASH!");
                     });
                 }
             }while(f==null);

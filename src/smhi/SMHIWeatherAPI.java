@@ -12,7 +12,7 @@ public class SMHIWeatherAPI {
     private final String latitude;
     private Forecasts forecasts;
 
-    public SMHIWeatherAPI(String longitude, String latitude) {
+    public SMHIWeatherAPI(String latitude, String longitude) {
         this.longitude = longitude;
         this.latitude = latitude;
     }
