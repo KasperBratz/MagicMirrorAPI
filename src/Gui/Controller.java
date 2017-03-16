@@ -119,19 +119,22 @@ public class Controller {
     private void startWeatherUpdater() {
         Runnable updateWeather = () -> {
             Forecasts f = null;
-            do {
+            boolean error = false;
+            while (true) {
                 try {
                     f = weatherApi.getForecasts();
-                } catch (IOException e) {
-                    Platform.runLater(() -> {
-                        temperatureLabel.setText("Sönder - Säg till Kasper");
-                    });
-                } catch (Exception e){
-                    Platform.runLater(() -> {
-                        temperatureLabel.setText("CRASH!");
-                    });
+                    break;
+                } catch (IOException e){
+                    if(!error){
+                        weatherApi = new SMHIWeatherAPI(prop.getProperty("lat"), prop.getProperty("longitude"));
+                        error = true;
+                        Platform.runLater(()->{
+                            temperatureLabel.setText("Error °C");
+                        });
+                    }
                 }
-            }while(f==null);
+            }
+            error = false;
             HourlyForecast forecast = f.getCurrentWeather();
 
             Platform.runLater(() -> {
